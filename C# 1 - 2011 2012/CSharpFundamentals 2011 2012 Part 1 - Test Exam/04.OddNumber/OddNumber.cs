@@ -8,18 +8,13 @@
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
-            int counter = 0;
+            long oddNum = 0;
             for (int i = 0; i < n; i++)
             {
-                BigInteger number = BigInteger.Parse(Console.ReadLine());
-                if (i % 2 != 0)
-                {
-                    counter++;
-                }
-                Console.WriteLine(counter);
-
-
+                long number = long.Parse(Console.ReadLine());
+                oddNum ^= number;// ksor na vsqko chislo dava unikalno chislo na necheten broi
             }
+            Console.WriteLine(oddNum);
         }
     }
 }
