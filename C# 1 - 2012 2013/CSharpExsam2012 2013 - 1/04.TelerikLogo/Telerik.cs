@@ -7,22 +7,111 @@ namespace TelerikLogo
     {
         static void Main()
         {
-            int x = int.Parse(Console.ReadLine());
-            int y = x;
-            int z = x / 2 + 1;
-            int width = (2 * z + 2 * x) - 3;
-            int hight = width;
-            int[,] matrix = new int[width, hight];
+            // initialization
+            int X = int.Parse(Console.ReadLine());
+            int Y = X;
+            int Z = (X / 2) + 1;
 
-            int currentRow = x / 2;
+            int width = (2 * X + 2 * Z) - 3;
+            int height = width;
+
+            int[,] matrix = new int[width, width];
+
+            // solution - filling the path with ones (1)
+
+            int currentRow = X / 2;
             int currentCol = 0;
 
-         
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
 
+                currentRow--;
+                currentCol++;
 
+                if (currentRow < 0)
+                {
+                    currentRow++;
+                    currentCol--;
+                    break;
+                }
+            }
 
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
 
-            for (int row = 0; row < hight; row++)
+                currentRow++;
+                currentCol++;
+
+                if (currentRow == 2 * X - 1)
+                {
+                    currentRow--;
+                    currentCol--;
+                    break;
+                }
+            }
+
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
+
+                currentRow++;
+                currentCol--;
+
+                if (currentRow == width)
+                {
+                    currentRow--;
+                    currentCol++;
+                    break;
+                }
+            }
+
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
+
+                currentRow--;
+                currentCol--;
+
+                if (currentCol == X / 2 - 1)
+                {
+                    currentRow++;
+                    currentCol++;
+                    break;
+                }
+            }
+
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
+
+                currentRow--;
+                currentCol++;
+
+                if (currentRow < 0)
+                {
+                    currentRow++;
+                    currentCol--;
+                    break;
+                }
+            }
+
+            while (true)
+            {
+                matrix[currentRow, currentCol] = 1;
+
+                currentRow++;
+                currentCol++;
+
+                if (currentCol == width)
+                {
+                    break;
+                }
+            }
+
+            // printing
+            for (int row = 0; row < width; row++)
             {
                 for (int col = 0; col < width; col++)
                 {
@@ -35,9 +124,10 @@ namespace TelerikLogo
                         Console.Write('*');
                     }
                 }
+
                 Console.WriteLine();
             }
-
         }
     }
 }
+
